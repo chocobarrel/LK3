@@ -26,7 +26,8 @@ public class AkunBank {
         this.saldo = saldo;
         this.bankID = bankID;
     }
-
+    // Wir, tolong gaweno method gawe identifikasi jenis nasabah karo bentuk nomer ID ne, suwun
+   
     public void cekAkun(){
         System.out.println(this.nama);
         System.out.println(this.saldo);
