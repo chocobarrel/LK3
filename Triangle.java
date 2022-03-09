@@ -32,5 +32,3 @@ class Triangle {
         return this.area;
     }
 }
-  
-
