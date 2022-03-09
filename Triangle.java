@@ -30,5 +30,6 @@ class Triangle {
     public double getArea() {
         this.area = (this.base * this.height) / 2;
         return this.area;
+        fhfh
     }
 }
