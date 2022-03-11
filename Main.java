@@ -36,7 +36,8 @@ class AkunBank {
     }
 
     public void cekSaldo(){
-
+        System.out.printf("Rekening anda memiliki saldo sebesar %,.2f", this.saldo);
+        System.out.println();
     }
 
     private void biayaAdmin(){
@@ -47,12 +48,16 @@ class AkunBank {
 
     }
     
-    public void setorTunai(){
-
+   public void setorTunai(double uangSetor){
+        this.saldo += uangSetor;
+        System.out.printf("Anda telah menyetorkan uang dari rekening anda sebesar %,.2f", uangSetor);
+        System.out.println();
     }
 
-    public void tarikTunai(){
-
+    public void tarikTunai(double uangTarik){
+        this.saldo -= uangTarik;
+        System.out.printf("Anda telah mengambil uang dari rekening anda sebesar %,.2f", uangTarik);
+        System.out.println();
     }
 
     public void transfer(){
