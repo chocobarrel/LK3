@@ -3,27 +3,28 @@ package advanceprogramming;
 import java.util.*;
 
 class AkunBank {
-    String nama;
+     String nama;
     double saldo;
     String nasabahID;
     String statusNasabah;
+    double jumlahTransfer;
+    double biayaAdmin;
 
-    public static Scannner inp = new Scanner(System.in);
+    public static Scanner inp = new Scanner(System.in);
 
-    public AkunBank(){
+    public akunBank(){
         // no-argument
     }
 
-    public AkunBank(String nama, double saldo){
+    public akunBank(String nama, double saldo){
         this.nama = nama;
         this.saldo = saldo;
-        this.statusNasabah = silver;
     }
 
-    public AkunBank(String nama, double saldo, String nasabahID){
+    public akunBan(String nama, double saldo, String nasabahID){
         this.nama = nama;
         this.saldo = saldo;
-        this.statusNasabah = nasabahID;
+        this.nasabahID = nasabahID;
     }
 
     private void jenisNasabah(String nasabahID) {
@@ -41,11 +42,22 @@ class AkunBank {
     }
 
     private void biayaAdmin(){
-
+        biayaAdmin = jumlahTransfer * 0.001;
     }
 
-    private void biayaAdmin(String nasabahID){
-
+    private void biayaAdmin(String statusNasabah){
+        switch (statusNasabah) {
+            case "silver" :
+                biayaAdmin = jumlahTransfer * 0.002;
+                break;
+            case "gold" :
+                biayaAdmin = jumlahTransfer * 0.005;
+                break;
+            case "platinum" :
+                biayaAdmin = jumlahTransfer * 0.01;
+                break;
+        }
+                
     }
     
    public void setorTunai(double uangSetor){
@@ -61,11 +73,14 @@ class AkunBank {
     }
 
     public void transfer(){
-        double jumlahTransfer = inp.nextDouble();
-        if (statusNasabah = null) {
-            biayaAdmin(double jumlahTransfer);
-        } 
-        this.saldo = this.saldo - jumlahTransfer;
+        jumlahTransfer = inp.nextDouble();
+        if (statusNasabah == null){
+            biayaAdmin();
+        }
+        else {
+            biayaAdmin(statusNasabah);
+        }
+       this.saldo -= (jumlahTransfer + biayaAdmin);
     }
 }
 
