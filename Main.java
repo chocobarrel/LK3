@@ -7,7 +7,8 @@ import javaapplication1.AkunBank;
 /** TENTANG PROGRAM
 *   Disini kami memiliki sebuah bank yaitu Bank Central FILKOM. Pada bank ini terdapat 2 jenis nasabah yaitu
     1. Non member (Yang harus diinputkan adalah nama dan saldo awal)
-    2. Member (Yang harus diinputkan adalah nama, saldo, ID nasabah dan jenis member)                Nasabah member sendiri memiliki 3 jenis yaitu :
+    2. Member (Yang harus diinputkan adalah nama, saldo, ID nasabah dan jenis member)                
+    Nasabah member sendiri memiliki 3 jenis yaitu :
             a. Silver
             b. Gold
             c. Platinum
