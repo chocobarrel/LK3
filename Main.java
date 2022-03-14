@@ -52,7 +52,6 @@ class AkunBank {
         this.nama = nama;
         this.saldo = saldo;
         this.nasabahID = "000";
-        this.statusNasabah = "non-member";
     }
 
     public AkunBank(String nama, double saldo, String nasabahID, String statusNasabah) {
