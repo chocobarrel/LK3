@@ -4,11 +4,32 @@ import java.util.*;
 
 import javaapplication1.AkunBank;
 
-/** DOKUMENTASI (Hanif)
- *      Program 
- *  
- *  
+/** TENTANG PROGRAM
+*   Disini kami memiliki sebuah bank yaitu Bank Central FILKOM. Pada bank ini terdapat 2 jenis nasabah yaitu
+    1. Non member (Yang harus diinputkan adalah nama dan saldo awal)
+    2. Member (Yang harus diinputkan adalah nama, saldo, ID nasabah dan jenis member)                Nasabah member sendiri memiliki 3 jenis yaitu :
+            a. Silver
+            b. Gold
+            c. Platinum
+
+    Setiap jenis member memiliki biaya admin yang berbeda yaitu :
+    1. Silver (member silver memiliki biaya admin sebesar 0,2%)
+    2. Gold (Member gold memiliki biaya admin sebesar 0,5%)
+    3. Platinum (Member platinum memiliki biaya admin sebesar 1%)
+    4. Non member memiliki biaya admin sebesar 0,1%
+
+    Terdapat beberapa pelayanan yang diberikan untuk nasabah yaitu :
+    1. Nasabah bisa melihat informasi akun
+    2. Nasabah dapat menarik uang tunai dari rekening
+    3. Nasabah dapat menyetorkan sejumlah uang ke dalam rekening
+    4. Nasabah dapat mentransfer sejumlah uang ke nasabah lain 
  */
+
+ /** SKENARIO
+  *  1. Nasabah member silver menyetor uang dan mengecek akun nasabah
+     2. Nasabah non-member menarik uang dan mengecek saldo
+     3. Nasabah member platinum mentransfer uang dan menarik uang
+  */
 
 class AkunBank {
     String nama;
@@ -27,10 +48,11 @@ class AkunBank {
         // no-argument
     }
 
-    public AkunBank(String nama, double saldo, String nasabahID){
+    public AkunBank(String nama, double saldo){
         this.nama = nama;
         this.saldo = saldo;
-        this.nasabahID = nasabahID;
+        this.nasabahID = "000";
+        this.statusNasabah = "non-member";
     }
 
     public AkunBank(String nama, double saldo, String nasabahID, String statusNasabah) {
@@ -86,7 +108,7 @@ class AkunBank {
     }
     
    public void setorTunai(){
-        System.out.println("Masukkan jumlah uang yang akan ditambahkan ke dalam rekening : ");
+        System.out.print("Masukkan jumlah uang yang akan ditambahkan ke dalam rekening : ");
         uangSetor = inp.nextDouble();
         this.saldo += uangSetor;
         System.out.println("-----------------------------------------------------------------------------");
@@ -98,7 +120,7 @@ class AkunBank {
     }
 
     public void tarikTunai(){
-        System.out.println("Masukkan jumlah uang yang akan diambil dari rekening : ");
+        System.out.print("Masukkan jumlah uang yang akan diambil dari rekening : ");
         uangTarik = inp.nextDouble();
         this.saldo -= uangTarik;
         System.out.println("-----------------------------------------------------------------------------");
@@ -127,7 +149,7 @@ class AkunBank {
        System.out.println("|                    TANDA BUKTI TRANFER                  |");
        System.out.println("-----------------------------------------------------------");
        System.out.printf("| Anda telah mentransfer uang sebesar : Rp %,-14.2f |\n", jumlahTransfer);
-       System.out.printf("| kepada                              : %-17s |\n", namaTujuan);
+       System.out.printf("| Kepada                              : %-17s |\n", namaTujuan);
        System.out.printf("| Dengan biaya admin sebesar          : Rp %,-14.2f |\n", biayaAdmin);
        System.out.println("-----------------------------------------------------------");
        System.out.println();
@@ -137,34 +159,21 @@ class AkunBank {
 
 public class Main {
     public static void main(String[] args) {
-        
-//Disini kami memiliki sebuah bank yaitu Bank Central FILKOM. Pada bank ini terdapat 2 jenis nasabah yaitu
-//1. Non member (Yang harus diinputkan adalah nama dan saldo awal)
-//2. Member (Yang harus diinputkan adalah nama, saldo, ID nasabah dan jenis member)
-//          Nasabah member sendiri memiliki 3 jenis yaitu :
-//          a. Silver
-//          b. Gold
-//          c. Platinum
-//
-//Setiap jenis member memiliki biaya admin yang berbeda yaitu :
-//1. Silver (member silver memiliki biaya admin sebesar 0,2%)
-//2. Gold (Member gold memiliki biaya admin sebesar 0,5%)
-//3. Platinum (Member platinum memiliki biaya admin sebesar 1%)
-//4. Non member memiliki biaya admin sebesar 0,1%
-//
-//Terdapat beberapa pelayanan yang diberikan untuk nasabah yaitu :
-//1. Nasabah bisa melihat informasi akun
-//2. Nasabah dapat menarik uang tunai dari rekening
-//3. Nasabah dapat menyetorkan sejumlah uang ke dalam rekening
-//4. Nasabah dapat mentransfer sejumlah uang ke nasabah lain
-        
-        AkunBank c1 = new AkunBank("Anton", 1000000, "000");
-        c1.infoAkun();
+
+        // Nasabah member silver menyetor uang dan mengecek akun nasabah
+        AkunBank c1 = new AkunBank("Bima Zulva", 2000000, "001", "silver");
         c1.setorTunai();
-        c1.cekSaldo();
-        AkunBank c2 = new AkunBank("Zahra", 50000000, "002", "platinum");
-        c2.infoAkun();
-        c2.transfer();
+        c1.infoAkun();
+
+        // Nasabah non-member menarik uang dan mengecek saldo
+        AkunBank c2 = new AkunBank("Silva", 700000);
+        c2.tarikTunai();
         c2.cekSaldo();
+
+        // Nasabah member platinum mentransfer dan menarik uang
+        AkunBank c3 = new AkunBank("Nizam Ardian", 100000000, "002", "platinum");
+        c3.transfer();
+        c3.tarikTunai();
+        c3.infoAkun();
     }
 }
