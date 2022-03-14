@@ -166,7 +166,7 @@ public class Main {
         c1.infoAkun();
 
         // Nasabah non-member menarik uang dan mengecek saldo
-        AkunBank c2 = new AkunBank("Silva", 700000);
+        AkunBank c2 = new AkunBank("Silva Kharisma", 700000);
         c2.tarikTunai();
         c2.cekSaldo();
 
