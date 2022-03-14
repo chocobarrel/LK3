@@ -171,7 +171,7 @@ public class Main {
         c2.cekSaldo();
 
         // Nasabah member platinum mentransfer dan menarik uang
-        AkunBank c3 = new AkunBank("Nizam Ardian", 100000000, "002", "platinum");
+        AkunBank c3 = new AkunBank("Nizam Ardian", 300000000, "002", "platinum");
         c3.transfer();
         c3.tarikTunai();
         c3.infoAkun();
