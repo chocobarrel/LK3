@@ -18,6 +18,6 @@ public class Mie {
     }
 
     public void disajikan(){
-        System.out.println("Mie siap disajikan");
+        System.out.println("Mie siap disajikan!");
     }
 }
