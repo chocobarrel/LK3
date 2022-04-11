@@ -16,4 +16,8 @@ public class Mie {
     public void direbus() {
         System.out.println("Mie Direbus!");
     }
+
+    public void disajikan(){
+        System.out.println("Mie siap disajikan");
+    }
 }
