@@ -1,15 +1,16 @@
 package inheritance;
 
 public class Mie {
-    private int berat;
+    private final int beratOriginal = 100;
+    private int beratTotal;
     private int porsi;
 
     public Mie(){
         //no-argument
     }
 
-    public Mie(int berat, int porsi){
-        this.berat = berat;
+    public Mie(int porsi){
+        this.beratTotal = this.beratOriginal;
         this.porsi = porsi;
     }
 
@@ -18,6 +19,10 @@ public class Mie {
     }
 
     public void disajikan(){
-        System.out.println("Mie siap disajikan!");
+        System.out.println("Mie siap disajikan");
+    }
+
+    public void tambahBerat(int beratTambahan) {
+        this.beratTotal =  this.beratOriginal +  beratTambahan;
     }
 }
